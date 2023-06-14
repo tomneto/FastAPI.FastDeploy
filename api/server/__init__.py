@@ -1,5 +1,5 @@
 import uvicorn
-from api.app.config import app_config
+from api.config import app_config
 
 def run(app: any):
     try:
