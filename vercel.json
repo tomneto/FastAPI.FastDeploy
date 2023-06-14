@@ -1,4 +1,6 @@
 {
+  "buildCommand": "pip install -r requirements.txt",
+  "devCommand": "uvicorn main:app --host 0.0.0.0 --port 9873",
   "build":{
     "src": "api/main.py",
     "use": "@vercel/python"
