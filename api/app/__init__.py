@@ -18,7 +18,7 @@ class App(FastAPI):
 		# load up the authentication route
 		enable_auth(app)
 
-		# enable cors to work with mongodb and others that require connection over ethernet from Versel to third party API's
+		# enable cors to work with mongodb and others that require connection over ethernet from Vercel to third party API's
 		self.cors_state = enable_cors(self)
 
 		# load the router obtained from the router package
