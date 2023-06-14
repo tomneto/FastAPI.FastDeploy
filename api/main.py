@@ -6,7 +6,7 @@ from api.config import app_config
 from api.middleware import enable_cors, enable_auth
 
 
-class App(FastAPI):
+class app(FastAPI):
 	# applying basic api settings
 	title = app_config().title
 
@@ -33,7 +33,5 @@ class App(FastAPI):
 		elif app_config().show_doc:
 			FastAPI(title='mailTo')
 
-
-app = App()
 
 
