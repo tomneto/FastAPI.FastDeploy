@@ -28,9 +28,10 @@ class app(FastAPI):
 
 	def load_doc_settings(self):
 		if not app_config().show_doc:
-			FastAPI(title='mailTo', docs_url=None, redoc_url=None)
+			self.docs_url=None
+			self.redoc_url=None
 		elif app_config().show_doc:
-			FastAPI(title='mailTo')
+			pass
 
 
 
