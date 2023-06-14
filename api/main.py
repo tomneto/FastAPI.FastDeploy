@@ -7,12 +7,12 @@ from api.middleware import enable_cors, enable_auth
 
 
 class app(FastAPI):
-	# applying basic api settings
-	title = app_config().title
+
 
 	def __init__(self):
+		# applying basic api settings
 		super().__init__()
-
+		self.title = app_config().title
 		app = self
 
 		# load up the authentication route
