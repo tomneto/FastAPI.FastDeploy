@@ -5,7 +5,7 @@ from api.config import app_config
 from api.middleware import enable_cors, enable_auth
 
 
-class app(FastAPI):
+class App(FastAPI):
 
 
 	def __init__(self):
@@ -33,5 +33,4 @@ class app(FastAPI):
 		elif app_config().show_doc:
 			pass
 
-
-
+app = App()
