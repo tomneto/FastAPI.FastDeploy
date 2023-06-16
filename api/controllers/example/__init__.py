@@ -4,12 +4,12 @@ fakeDb = []
 
 
 def fetch_one(uuid: uuid.UUID):
-	user = [e['uuid'] for e in fakeDb if e['uuid'] == str(uuid)]
-	print(user)
+	user = [e['uuid'] for e in fakeDb if str(e['uuid']) == str(uuid)]
 	if user:
 		return user[0]
 	else:
 		return None
+
 
 def create(username: str, password: str):
 	if username not in [e['username'] for e in fakeDb]:
@@ -39,4 +39,3 @@ def delete(username: str, password: str):
 			del_user = True
 
 	return del_user
-
