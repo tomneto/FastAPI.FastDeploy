@@ -1,12 +1,11 @@
 from fastapi import FastAPI
 
-from api.router import route
+from api.router import public
 from api.config import app_config
 from api.middleware import enable_cors, enable_auth
 
 
 class App(FastAPI):
-
 
 	def __init__(self):
 		# applying basic api settings
@@ -15,22 +14,26 @@ class App(FastAPI):
 		app = self
 
 		# load up the authentication route
-		#enable_auth(app)
+		enable_auth(app)
 
-		# enable cors to work with mongodb and others that require connection over ethernet from Vercel to third party API's
-		#self.cors_state = enable_cors(self)
-
-		# load the router obtained from the router package
-		#self.include_router(route)
+		# enable cors to work with mongodb and others that require connection over ethernet from Vercel to third party APIs
+		self.cors_state = enable_cors(self)
 
 		# execute initialization methods
-		#self.load_doc_settings()
+		self.load_doc_settings()
+		self.load_public_endpoints()
 
+	# set the documentation url based on the values obtained from the .env
 	def load_doc_settings(self):
-		if not app_config().show_doc:
+		if app_config().show_doc:
+			pass
+		elif not app_config().show_doc:
 			self.docs_url = None
 			self.redoc_url = None
-		elif app_config().show_doc:
-			pass
+
+	# load your public endpoints here:
+	def load_public_endpoints(self):
+		self.include_router(public.example.route)
+
 
 app = App()

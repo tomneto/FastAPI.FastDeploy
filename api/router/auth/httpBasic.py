@@ -7,7 +7,6 @@ from starlette.responses import RedirectResponse, JSONResponse
 
 security = HTTPBasic()
 
-
 route = APIRouter()
 
 # change the following variable for the data source you want to store the authenticated users
@@ -36,10 +35,9 @@ async def login(credentials: Annotated[HTTPBasicCredentials, Depends(security)])
         user = {"username": "john.doe"}
         return user
 
-
 # Sign-out endpoint
 @route.get("/logout")
-def logout(request: Request, credentials: HTTPBasicCredentials = Depends(security)):
+def logout(credentials: HTTPBasicCredentials = Depends(security)):
     username = credentials.username
 
     # Check if the user is authenticated
@@ -49,3 +47,4 @@ def logout(request: Request, credentials: HTTPBasicCredentials = Depends(securit
         return RedirectResponse('/')
     else:
         return JSONResponse(content={"message": "Logout successful"}, headers={'Authorization': ''})
+

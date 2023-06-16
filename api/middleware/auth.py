@@ -7,6 +7,7 @@ from starlette.responses import JSONResponse
 
 async def authenticate(request):
     try:
+        #
         print(request.headers['Authorization'])
     except Exception as e:
         print(e)
