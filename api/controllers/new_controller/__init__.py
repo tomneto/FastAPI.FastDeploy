@@ -43,9 +43,11 @@ def insert_one(new_value: str):
 
 def update_one(old: str, new_value: str):
 	try:
+
 		transaction = {
 			'new_field': new_value,
 		}
+
 		new_collection.update_one(
 			{'new_value': old},  # here we can set the filter to the query
 			{
@@ -59,6 +61,3 @@ def update_one(old: str, new_value: str):
 		# Handle the exception
 		print("Error:", e)
 		return False
-
-
-

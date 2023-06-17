@@ -11,12 +11,10 @@ from docs.descriptions import loadDescription
 from api.controllers.new_controller import find_one, insert_one, update_one  # Example controller import
 from api.router.public.new_endpoint.models import new_post_model  # Example model import
 
-
 route = APIRouter()
 
-
 @route.get("/new_collection", description=loadDescription("new_collection", 'get'), name="Get Example", tags=["Example Tag"])
-async def exampleGet(uuid: uuid.UUID):
+async def new_get_endpoint(uuid: uuid.UUID):
 	try:
 
 		result = find_one(uuid)
@@ -34,7 +32,7 @@ async def exampleGet(uuid: uuid.UUID):
 
 
 @route.post("/new_collection", description=loadDescription("new_collection", 'post'), name="Post Example", tags=["Example Tag"])
-async def examplePost(request: new_post_model):
+async def new_post_endpoint(request: new_post_model):
 	try:
 
 		result = insert_one(request.new_field)
