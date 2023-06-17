@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import os
 
-load_dotenv('example.env')
+load_dotenv()
 
 
 class app_config:
@@ -14,7 +14,7 @@ class app_config:
 	host = str(os.getenv("HOST"))
 
 	# mongo db settings
-	mongo_uri = bool(os.getenv("MONGO_URI"))  # in order to add more than a database to your project, please duplicate this line and set another .env variable.
+	mongo_uri = str(os.getenv("MONGO_URI"))  # in order to add more than a database to your project, please duplicate this line and set another .env variable.
 
 	# doc settings
 	show_doc = bool(os.getenv("ENABLE_DOCUMENTATION"))
