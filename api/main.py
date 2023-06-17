@@ -33,7 +33,7 @@ class App(FastAPI):
 
 	# load your public endpoints here:
 	def load_public_endpoints(self):
-		self.include_router(public.example.route)
+		self.include_router(public.new_endpoint.route)
 
 
 app = App()

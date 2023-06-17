@@ -1,22 +1,25 @@
+# external package's
 import uuid
-
 from fastapi import APIRouter
 from starlette.responses import JSONResponse
 from starlette.requests import Request
 
-from api.controllers.example import fetch_one, create, update, delete
-
-from api.router.public.example.models import Post
+# internal package's
 from docs.descriptions import loadDescription
+
+# load controller's and models here
+from api.controllers.new_controller import find_one, insert_one, update_one  # Example controller import
+from api.router.public.new_endpoint.models import new_post_model  # Example model import
+
 
 route = APIRouter()
 
 
-@route.get("/example", description=loadDescription("example", 'get'), name="Get Example", tags=["Example Tag"])
+@route.get("/new_collection", description=loadDescription("new_collection", 'get'), name="Get Example", tags=["Example Tag"])
 async def exampleGet(uuid: uuid.UUID):
 	try:
 
-		result = fetch_one(uuid)
+		result = find_one(uuid)
 
 		if result:
 			result, status_code = {"uuid": result}, 200
@@ -30,11 +33,11 @@ async def exampleGet(uuid: uuid.UUID):
 	return JSONResponse(content=result, status_code=status_code)
 
 
-@route.post("/example", description=loadDescription("example", 'post'), name="Post Example", tags=["Example Tag"])
-async def examplePost(request: Post):
+@route.post("/new_collection", description=loadDescription("new_collection", 'post'), name="Post Example", tags=["Example Tag"])
+async def examplePost(request: new_post_model):
 	try:
 
-		result = create(request.user, request.password)
+		result = insert_one(request.new_field)
 
 		if result is not None:
 			result, status_code = {"uuid": result}, 200

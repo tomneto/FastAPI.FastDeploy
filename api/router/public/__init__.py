@@ -1,1 +1,2 @@
-from api.router.public import example
+from api.router.public import new_endpoint
+

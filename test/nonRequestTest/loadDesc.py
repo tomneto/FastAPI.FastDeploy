@@ -1,3 +1,3 @@
 from docs.descriptions import loadDescription
 
-print(loadDescription('example', 'get'))
+print(loadDescription('new_collection', 'get'))
