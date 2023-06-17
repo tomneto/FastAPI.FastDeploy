@@ -6,16 +6,16 @@ load_dotenv()
 
 class app_config:
 	# dev settings
-	debug = bool(os.getenv("DEBUG", default=True))
+	debug = bool(os.environ.get("DEBUG", default=True))
 
 	# api settings
-	title = str(os.getenv("TITLE"))
-	port = int(os.getenv("PORT"))
-	host = str(os.getenv("HOST"))
+	title = str(os.environ.get("TITLE"))
+	port = int(os.environ.get("PORT"))
+	host = str(os.environ.get("HOST"))
 
 	# mongo db settings
-	mongo_uri = str(os.getenv("MONGO_URI"))  # in order to add more than a database to your project, please duplicate this line and set another .env variable.
+	mongo_uri = str(os.environ.get("MONGO_URI"))  # in order to add more than a database to your project, please duplicate this line and set another .env variable.
 
 	# doc settings
-	show_doc = bool(os.getenv("ENABLE_DOCUMENTATION"))
+	show_doc = bool(os.environ.get("ENABLE_DOCUMENTATION"))
 
