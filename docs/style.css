@@ -456,27 +456,28 @@ border: 0px solid white;
 }
 
 .kyvWZW {
-  /* TYPE */
-  margin-left: 10px;
-  text-transform: none;
-  font-size: 0.929em;
-  color: rgba(188, 192, 181, 0.855);
+    color: rgb(62 62 60);
 }
 
 /* QUERY PARAMS HOLDER */
 .iupIzr {
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: rgba(218, 218, 218, 0.914);
-  margin-top: 1em;
-  margin-right: 0px;
-  margin-bottom: 1em;
-  margin-left: 0px;
-  color: rgb(169, 174, 176);
-  font-weight: normal;
-  text-transform: uppercase;
-  font-size: 0.929em;
-  line-height: 20px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(218, 218, 218, 0.914);
+    margin-top: 1em;
+    margin-right: 0px;
+    margin-bottom: 1em;
+    margin-left: 0px;
+    color: rgb(62 62 60);
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 0.929em;
+    line-height: 20px;
+    background: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    text-transform: capitalize;
+    transition: border-top-left-radius
 }
 
 /* BUTTONS */
@@ -651,6 +652,7 @@ border: 0px solid white;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   margin-bottom: 4px;
+  margin-top: 20px;
   line-height: 1.5em;
   cursor: pointer;
   color: rgb(245, 158, 158);
