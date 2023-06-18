@@ -3,7 +3,6 @@ import os
 
 load_dotenv()
 
-
 class app_config:
 	# dev settings
 	debug = bool(os.environ.get("DEBUG", default=True))

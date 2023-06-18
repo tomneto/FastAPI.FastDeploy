@@ -7,6 +7,32 @@ body {
   transition: all 1s ease;
 }
 
+img:hover {
+    border: 1px solid white;
+    border-radius: 50px;
+}
+
+.swagger-ui .opblock-body pre.microlight {
+    text-align: left;
+    font-size: 12px;
+    margin: 0;
+    padding: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    border-radius: 4px;
+    background: #41444e;
+    overflow-wrap: break-word;
+    font-family: monospace;
+    font-weight: 600;
+    color: #fff;
+}
+
+
 .cFYLqk {
     font-family: Roboto, sans-serif;
     font-size: 14px;
@@ -147,6 +173,52 @@ span {
 textarea.body-param__text {
  background: rgb(62 62 60);
     color: white;
+    border-radius:10px;
+    border: 1px solid white;
+    background-color: #3e3e3c;
+}
+
+.swagger-ui table {
+    width: 100%;
+    padding: 0 px;
+    padding-top: ;
+    padding-right: ;
+    padding-bottom: ;
+    padding-left: ;
+    border-collapse: initial;
+    border-radius: 15px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    color: white;
+}
+
+.swagger-ui table thead tr td, .swagger-ui table thead tr th {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 12px 0;
+    text-align: center;
+    border-bottom: 1px solid rgb(255 255 255 / 20%);
+    font-family: sans-serif;
+    color: #ffffff;
+    border-left: 0px solid;
+}
+
+
+.swagger-ui .btn-group .btn {
+    flex: 1;
+    background: red;
+    border: 1px solid #263239;
+    font-weight: 150;
+    color: white;
+}
+.swagger-ui .btn-group .btn:hover {
+    flex: 1;
+    background: rgba(255 255 255 0);
+    font-weight: 150;
+    color: white;
+    border-color: red;
 }
 
 .swagger-ui textarea {
@@ -159,11 +231,12 @@ span.sc-jHcXXw:hover {
 }
 
 .swagger-ui textarea:focus {
-    border: 1px solid #263239;
+    border: 1px solid white;
 }
 
 textarea.body-param__text:active {
     background: #252525;
+    border: 1px solid white;
 }
 
 .swagger-ui .opblock-description-wrapper p, .swagger-ui .opblock-external-docs-wrapper p, .swagger-ui .opblock-title_normal p {
@@ -171,6 +244,27 @@ textarea.body-param__text:active {
     margin: 0;
     font-family: sans-serif;
     color: hsla(0,0%,100%,.8);
+    text-align: center;
+}
+
+.swagger-ui .responses-inner h4, .swagger-ui .responses-inner h5 {
+    font-size: 12px;
+    margin: 10px 0 5px;
+    font-family: sans-serif;
+    color: #f4f4f4;
+}
+
+.swagger-ui .response-col_status {
+    font-size: 14px;
+    font-family: sans-serif;
+    color: #ffffff;
+}
+
+.swagger-ui input[type=email].invalid, .swagger-ui input[type=file].invalid, .swagger-ui input[type=password].invalid, .swagger-ui input[type=search].invalid, .swagger-ui input[type=text].invalid, .swagger-ui textarea.invalid {
+    -webkit-animation: shake .4s 1;
+    animation: shake .4s 1;
+    border-color: #4990e2;
+    background: #263239;
 }
 
 button {
@@ -242,10 +336,10 @@ table tbody th {
 
 /* SWAGGER ELEMENTS */
 .swagger-ui .border-box, .swagger-ui a, .swagger-ui article, .swagger-ui body, .swagger-ui code, .swagger-ui dd, .swagger-ui div, .swagger-ui dl, .swagger-ui dt, .swagger-ui fieldset, .swagger-ui footer, .swagger-ui form, .swagger-ui h1, .swagger-ui h2, .swagger-ui h3, .swagger-ui h4, .swagger-ui h5, .swagger-ui h6, .swagger-ui header, .swagger-ui html, .swagger-ui input[type=email], .swagger-ui input[type=number], .swagger-ui input[type=password], .swagger-ui input[type=tel], .swagger-ui input[type=text], .swagger-ui input[type=url], .swagger-ui legend, .swagger-ui li, .swagger-ui main, .swagger-ui ol, .swagger-ui p, .swagger-ui pre, .swagger-ui section, .swagger-ui table, .swagger-ui td, .swagger-ui textarea, .swagger-ui th, .swagger-ui tr, .swagger-ui ul {
-  box-sizing: border-box;
-  background: #12171a;
-
+    box-sizing: border-box;
+    background: #263239;
 }
+
 .swagger-ui table {
   width: 100%;
   padding: 0 px;
@@ -272,6 +366,8 @@ border: 0px solid white;
     padding-bottom: 10px;
     padding-left: 15px;
 }
+
+
 
 .swagger-ui .opblock.is-open .opblock-summary {
     border: 0px solid;
@@ -440,12 +536,14 @@ border: 0px solid white;
     /* alignment-baseline: central; */
     font-weight: 150;
     border-radius: 15px;
+    border: 1px solid #263239;
 }
 
 .swagger-ui .btn.execute:hover {
     /* border-color: #4990e2; */
     background: rgba(255, 255, 255, 0);
     color: #fff;
+    border-color: #4990e2;
 }
 
 .bqPUda { /* GET */
