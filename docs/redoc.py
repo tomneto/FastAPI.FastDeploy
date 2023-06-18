@@ -38,14 +38,9 @@ swaggerBoxes.forEach((box) => {
 box.style.border = "0px solid";
 box.style.color = "white";
 });
-var methodPlaceHolders = document.querySelectorAll('span[class^="sc-jHcXXw"]');
-methodPlaceHolders.forEach((placeHolder) => {
-let placeHolderStyle = placeHolder.style 
-placeHolder.addEventListener('click', function() {
-var tryButton = document.querySelectorAll('button[class^="tryBtn"]');
-tryBtn.
-});
-});
+
+
+
 };
 
 setTimeout(function () {
