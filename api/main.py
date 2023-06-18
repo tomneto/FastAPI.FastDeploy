@@ -47,7 +47,7 @@ class App(FastAPI):
 				return get_redoc_html(
 					openapi_url=openapi_url, title=self.title + " - ReDoc"
 				)
-#
+
 			self.include_router(doc_route)
 
 	# load your public endpoints here:
