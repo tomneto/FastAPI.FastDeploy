@@ -18,4 +18,4 @@ class app_config:
 
 	# doc settings
 	show_doc = bool(os.environ.get("ENABLE_DOCUMENTATION"))
-
+	doc_url = str(os.environ.get("DOCUMENTATION_URL", default="/docs"))

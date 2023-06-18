@@ -11,7 +11,6 @@ from docs.redoc import get_redoc_html
 from api.router.public import new_endpoint
 ## from api.router.private import
 
-
 class App(FastAPI):
 
 	def __init__(self):
@@ -37,7 +36,7 @@ class App(FastAPI):
 
 			doc_route = APIRouter()
 
-			@doc_route.get("/docs", include_in_schema=False)
+			@doc_route.get(app_config.doc_url, include_in_schema=False)
 			async def redoc_html(req: Request) -> HTMLResponse:
 				root_path = req.scope.get("root_path", "").rstrip("/")
 				openapi_url = root_path + self.openapi_url
