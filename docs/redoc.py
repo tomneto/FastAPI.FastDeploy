@@ -5,7 +5,6 @@ from fastapi.responses import HTMLResponse
 with open(os.path.join(os.path.dirname(__file__) , "style.css"), "r") as css_file:
 	css_content = css_file.read()
 
-
 def get_redoc_html(
 		*,
 		openapi_url: str,
@@ -20,7 +19,7 @@ def get_redoc_html(
 			</head> 
 			<body>
 			<div id="redoc-container"></div>
-			<script src="https://cdn.jsdelivr.net/npm/redoc@2.0.0-rc.55/bundles/redoc.standalone.min.js"> </script>
+			<script src="https://cdn.jsdelivr.net/npm/redoc@2.0.0-rc.55/bundles/redoc.standalone.js"> </script>
 			<script src="https://cdn.jsdelivr.net/gh/wll8/redoc-try@1.4.1/dist/try.js"></script>
 			<script>	
 			initTry({{
@@ -38,14 +37,60 @@ swaggerBoxes.forEach((box) => {
 box.style.border = "0px solid";
 box.style.color = "white";
 });
+var tables = document.querySelectorAll("table")
+tables.forEach(table => {
+    table.setAttribute("hidden", "hidden")
+});
+var tables = document.querySelectorAll("table");
+var tablesPlaceHolders = document.querySelectorAll("h5");
 
+tables.forEach(function(table, index) {
+  table.setAttribute("aria-expanded", "false");
+  tablesPlaceHolders[index].style.textTransform = "capitalize";
+  tablesPlaceHolders[index].style.cursor = "pointer";
+  tablesPlaceHolders[index].addEventListener("click", function() {
+    table.toggleAttribute("hidden");
+
+  });
+  
+  var validationErrorButtons = document.querySelectorAll("button[class^='sc-jXcxbT jsdzMI']");
+validationErrorButtons.forEach(function(button) {
+button.setAttribute("aria-expanded", "false");
+  button.addEventListener("click", function() {
+    var toggleState = button.getAttribute("aria-expanded");
+    
+    button.style.transition = "border-radius 0.4s linear";
+
+    if (toggleState === "false") {
+    	button.style.borderRadius = "0px";
+      button.style.borderTopLeftRadius = "15px";
+      button.style.borderTopRightRadius = "15px";
+      button.style.borderBottomLeftRadius = "0px";
+      button.style.borderBottomRightRadius = "0px";
+    } else {
+    button.style.borderRadius = "0px";
+      button.style.borderTopLeftRadius = "0px";
+      button.style.borderTopRightRadius = "0px";
+      button.style.borderBottomLeftRadius = "15px";
+      button.style.borderBottomRightRadius = "15px";
+    }
+  });
+});
+
+
+  
+  
+});
 
 
 };
 
+
+
+
 setTimeout(function () {
 applySwaggerStyle();
-}, 3000);
+}, 1000);
 </script>"""
 		html += f""""<style>{css_content}</style></body></html>"""
 
