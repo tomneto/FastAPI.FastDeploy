@@ -110,6 +110,7 @@ font-weight: 200;
         align-text: center;
         padding: 5px;
     }
+
     /* images */
     
     .fastApiLogo {
