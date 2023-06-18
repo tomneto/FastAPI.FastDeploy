@@ -2,9 +2,6 @@
 <head>
 </head>
 <body>
-    <div style="width: 100%;">
-        <img src="readme.svg">
-      </div>
 
 <header class="header">
 
