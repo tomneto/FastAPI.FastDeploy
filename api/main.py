@@ -1,6 +1,6 @@
 # load the fastapi engine
 from fastapi import FastAPI, APIRouter, Request
-from starlette.responses import RedirectResponse, HTMLResponse
+from fastapi.responses import RedirectResponse, HTMLResponse
 
 # load the additional project content
 from api.config import app_config
@@ -10,6 +10,7 @@ from docs.redoc import get_redoc_html
 # load your endpoints here
 from api.router.public import new_endpoint
 ## from api.router.private import
+
 
 class App(FastAPI):
 

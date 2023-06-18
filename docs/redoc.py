@@ -1,4 +1,4 @@
-from starlette.responses import HTMLResponse
+from fastapi.responses import HTMLResponse
 
 
 def get_redoc_html(
