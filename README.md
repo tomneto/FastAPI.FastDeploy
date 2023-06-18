@@ -46,7 +46,7 @@ The following code shows where the "new" tag can be located:
 
 <a href="https://ibb.co/jH8vKdx"><img src="https://i.ibb.co/t3HMfSN/Screenshot-2023-06-18-at-19-23-49.png" alt="Screenshot-2023-06-18-at-19-23-49" border="0"></a>
 
-These code was obtained in one of the default route files included in the project, in order to create a new get route we can simply get this code and replace the "new_" for "whatever_you_want". And you will have a basic get endpoint. But of course this is just the tip of the iceberg.
+These code was obtained in one of the default route files included in the project, in order to create a new get route we can simply get this code and replace the "new_" with "whatever_you_want". And you will have a basic get endpoint. But of course this is just the tip of the iceberg.
 
 </div>
 <br>
