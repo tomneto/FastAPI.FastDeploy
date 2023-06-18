@@ -1,8 +1,5 @@
 <html>
 <head>
-<title>
-    Fast API + Fast Deploy
-</title>
 </head>
 <body>
 
