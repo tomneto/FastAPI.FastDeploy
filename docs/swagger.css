@@ -19,7 +19,20 @@
   .swagger-ui .opblock.opblock-get .opblock-summary {
     border-color: #4c9a4f;
   }
-  
+
+ .dIxbMO > button {
+    background-color: #263239;
+    /* border: 0px; */
+    color: inherit;
+    /* padding: 2px 10px; */
+    /* font-family: Roboto, sans-serif; */
+    /* font-size: 14px; */
+    line-height: 1.5em;
+    cursor: pointer;
+    /* outline: 0px; */
+    vertical-align: middle;
+}
+
   .swagger-ui .opblock.opblock-get {
     border: 0px;
     background: #263239;
