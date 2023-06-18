@@ -105,18 +105,35 @@ font-weight: 200;
     line-height: auto;
     }
 
+    lu {
+        justify-content: flex-start;
+        align-text: center;
+        padding: 5px;
+    }
     /* images */
     
     .fastApiLogo {
         align-items: center;
         display: flex;
         margin: auto;
+        
     }
 
     .fastapiMini {
         vertical-align: middle;
+        margin-right:10px;
     }
     
+
+    .vercelMini {
+        vertical-align: middle;
+        margin-right:10px;
+    }
+
+    .dockerMini {
+        vertical-align: middle;
+        margin-right:10px;
+    }
 
 </style>
 <header class="header">
@@ -170,16 +187,26 @@ These code was obtained in one of the default route files included in the projec
 <p>Developed by: <a href="https://tomneto.com">Tom Neto</a>.</p>
 
 <div>
+<h3>Powered by:</h3>
 <lu>
-<img class="fastapiMini" src="https://cdn.worldvectorlogo.com/logos/fastapi-1.svg" height="20">Powered by: <a href="https://fastapi.tiangolo.com/">FastAPI</a>.</lu>
+    <img class="fastapiMini" src="https://cdn.worldvectorlogo.com/logos/fastapi-1.svg" height="25"><a href="https://fastapi.tiangolo.com/">FastAPI</a>.
+</lu>
 <lu>
-<img src="https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png" height="20">Powered by: <a href="https://fastapi.tiangolo.com/">FastAPI</a>.</lu>
+    <img class="vercelMini" src="https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png" height="26"><a href="http://vercel.com/">Vercel</a>.
+</lu>
+
+<lu>
+    <img class="dockerMini" src="https://i.ibb.co/zrxvKM6/docker.png" height="20"><a href="https://www.docker.com/">Docker</a>.
+</lu>
+
 </div>
+
+
+
+
+
+
 
 </body>
 
 </html>
-
-
-
-  
