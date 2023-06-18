@@ -11,7 +11,7 @@ from docs.redoc import get_redoc_html
 from api.router.public import new_endpoint
 ## from api.router.private import
 
-class App(FastAPI):
+class app(FastAPI):
 
 	def __init__(self):
 		# applying basic api settings
@@ -55,4 +55,4 @@ class App(FastAPI):
 		pass
 
 
-app = App()
+#app = App()
