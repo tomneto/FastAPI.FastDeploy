@@ -1,0 +1,135 @@
+<svg fill="none" viewBox="0 0 600 300" width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject>
+        <style> 
+            body {
+            margin: 0;
+                background-color: #403d3d;
+            font-family: "Inter";
+            }
+            
+            div {
+              display: grid;
+                text-align: center;
+            
+            }
+            
+            p {
+                margin-left: 50px;
+                margin-right: 50px;
+                text-align: center;
+            }
+            
+            h3 {
+            color: #01998a;
+            text-align: center;
+            padding-left: 50px;
+            padding-right: 50px;
+            }
+        
+            h2 {
+            margin-top: 50px;
+            }   
+        
+            .header {
+            background: black;
+              display: flex;
+            min-height: 200px;
+            min-width: 500px;
+            
+            }
+        
+            .titleFastApi {
+                margin-right:0px;
+            }
+        
+            .titlePlusSign {
+                margin-left:0px;
+            }
+        
+            .titleFastDeploy {
+                margin-left:0px;
+            }
+            
+            .intro {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            text-align: center;
+            margin: 50px;
+            }    
+        
+            .alert {
+            color: #01998a;
+            text-transform: uppercase;
+            font-weight: 500;
+            }
+        
+            .alertEnclosure {
+            font-weight: 200;
+            background: #1892;
+            vertical-align: middle;
+            text-transform: uppercase;
+            padding: 20px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            }
+        
+            .advice{
+            font-weight: 400;
+            text-align: center;
+            padding-bottom: 25px;
+        
+            }
+        
+            .adviceEnclosure{
+        font-weight: 200;
+            background: black;
+            vertical-align: middle;
+            text-transform: uppercase;
+            padding: 20px;
+            }
+        
+            .tipNameEnclosure {
+            background: #666666;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+        
+            li {
+            line-height: auto;
+            }
+        
+            lu {
+                justify-content: flex-start;
+                align-text: center;
+                padding: 5px;
+            }
+        
+            /* images */
+            
+            .fastApiLogo {
+                align-items: center;
+                display: flex;
+                margin: auto;
+                
+            }
+        
+            .fastapiMini {
+                vertical-align: middle;
+                margin-right:10px;
+            }
+            
+        
+            .vercelMini {
+                vertical-align: middle;
+                margin-right:10px;
+            }
+        
+            .dockerMini {
+                vertical-align: middle;
+                margin-right:10px;
+            }
+        
+        </style>
+    </foreignObject>
+  </svg>
