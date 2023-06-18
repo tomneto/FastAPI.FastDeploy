@@ -5,7 +5,6 @@ def get_indexes():
 
 	# put the index information that you want to apply to your collection
 	new_indexes = [
-		IndexModel([('new_index', 1)], unique=True),
+		IndexModel([('data', 1)], unique=True),
 	]
-
 	return new_indexes

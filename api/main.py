@@ -1,20 +1,27 @@
-from fastapi import FastAPI
+# load the fastapi engine
+from fastapi import FastAPI, APIRouter, Request
+from starlette.responses import RedirectResponse, HTMLResponse
 
-from api.router import public
+# load the additional project content
 from api.config import app_config
 from api.middleware import enable_cors, enable_auth
+from docs.redoc import get_redoc_html
+
+# load your endpoints here
+from api.router.public import new_endpoint
+## from api.router.private import
 
 
 class App(FastAPI):
 
 	def __init__(self):
 		# applying basic api settings
-		super().__init__()
+		super().__init__(docs_url=None, redoc_url=None)
+
 		self.title = app_config().title
-		app = self
 
 		# load up the authentication route
-		enable_auth(app)
+		# enable_auth(app)
 
 		# enable cors to work with mongodb and others that require connection over ethernet from Vercel to third party APIs
 		self.cors_state = enable_cors(self)
@@ -22,18 +29,31 @@ class App(FastAPI):
 		# execute initialization methods
 		self.load_doc_settings()
 		self.load_public_endpoints()
+		self.load_private_endpoints()
 
 	# set the documentation url based on the values obtained from the .env
 	def load_doc_settings(self):
 		if app_config().show_doc:
-			pass
-		elif not app_config().show_doc:
-			self.docs_url = None
-			self.redoc_url = None
+
+			doc_route = APIRouter()
+
+			@doc_route.get("/docs", include_in_schema=False)
+			async def redoc_html(req: Request) -> HTMLResponse:
+				root_path = req.scope.get("root_path", "").rstrip("/")
+				openapi_url = root_path + self.openapi_url
+				return get_redoc_html(
+					openapi_url=openapi_url, title=self.title + " - ReDoc"
+				)
+
+			self.include_router(doc_route)
 
 	# load your public endpoints here:
 	def load_public_endpoints(self):
-		self.include_router(public.new_endpoint.route)
+		self.include_router(new_endpoint.route)
+
+	# load your private endpoints here:
+	def load_private_endpoints(self):
+		pass
 
 
 app = App()

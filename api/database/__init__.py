@@ -15,11 +15,11 @@ collections = [collection for collection in os.listdir(os.path.join(os.path.dirn
 
 def load_indexes(collection_name):
 	try:
-		module_name = f"{collection_name}.indexes"
-		collection_indexes = importlib.import_module(module_name)
+		module_name = f"api.database.collections.{collection_name}"
+		collection_module = __import__(module_name, fromlist=['indexes'])
+		collection_indexes = getattr(collection_module, 'indexes')
 		return collection_indexes.get_indexes()
-	except:
-		print(collection_name)
+	except ImportError:
 		return None
 
 
@@ -29,8 +29,8 @@ def set_indexes(collection, collection_name):
 		for index in indexes:
 			try:
 				collection.create_indexes([index])
-			except Exception as e:
-				print(e)
+			except:
+				pass
 
 
 class connect:
@@ -42,19 +42,19 @@ class connect:
 		else:
 			self.mongo_client = MongoClient(uri, server_api=ServerApi('1'))
 
-	def collection(self, collection_name):
-		db = self.mongo_client.database
-		collection = db.__getattr__(collection_name)
+		self.db = self.mongo_client.database
 
 		try:
 			self.mongo_client.admin.command('ping')
 			print("Pinged your deployment. You successfully connected to MongoDB!")
-		except Exception as e:
-			print(e)
 
+
+		except Exception as e:
+			raise e
+
+	def collection(self, collection_name):
+		collection = self.db.__getattr__(collection_name)
 		# load the indexes from the respective collection folder
 		set_indexes(collection, collection_name)
 
 		return collection
-
-

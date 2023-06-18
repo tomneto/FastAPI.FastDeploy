@@ -12,6 +12,7 @@ route = APIRouter()
 # change the following variable for the data source you want to store the authenticated users
 authenticated_users = {}
 
+
 @route.get("/login")
 async def login(credentials: Annotated[HTTPBasicCredentials, Depends(security)]):
     authenticated = False
@@ -32,8 +33,8 @@ async def login(credentials: Annotated[HTTPBasicCredentials, Depends(security)])
         raise HTTPException(status_code=401, detail="Unauthorized")
 
     else:
-        user = {"username": "john.doe"}
-        return user
+        return True
+
 
 # Sign-out endpoint
 @route.get("/logout")
@@ -47,4 +48,3 @@ def logout(credentials: HTTPBasicCredentials = Depends(security)):
         return RedirectResponse('/')
     else:
         return JSONResponse(content={"message": "Logout successful"}, headers={'Authorization': ''})
-
