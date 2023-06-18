@@ -1,6 +1,9 @@
 # load the fastapi engine
 from fastapi import FastAPI, APIRouter, Request
+from fastapi.openapi.docs import get_swagger_ui_html
 from fastapi.responses import RedirectResponse, HTMLResponse
+from fastapi.openapi.utils import get_openapi
+from starlette.staticfiles import StaticFiles
 
 # load the additional project content
 from api.config import app_config
@@ -44,7 +47,7 @@ class App(FastAPI):
 				return get_redoc_html(
 					openapi_url=openapi_url, title=self.title + " - ReDoc"
 				)
-
+#
 			self.include_router(doc_route)
 
 	# load your public endpoints here:
