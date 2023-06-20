@@ -42,8 +42,7 @@ class App(FastAPI):
 
 			from api.demo.home import demo_route
 
-			self.mount('/api/demo', StaticFiles(directory='demo'), name="demo")
-
+			self.mount('/api/demo', StaticFiles(directory=os.path.join(os.path.dirname(__file__)), name="demo"))
 			self.include_router(demo_route)
 
 		if app_config().show_doc:
@@ -69,4 +68,4 @@ class App(FastAPI):
 		pass
 
 
-app = App()
+#app = App()
