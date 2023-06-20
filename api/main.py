@@ -39,10 +39,10 @@ class App(FastAPI):
 	# set the documentation url based on the values obtained from the .env
 	def load_doc_settings(self):
 		if app_config().demo:
-			from demo.home import demo_route
 
-			#self.mount('/demo', StaticFiles(directory=os.path.join(os.path.dirname(os.getcwd()), 'demo')),
-			#			name="demo")
+			from api.demo.home import demo_route
+
+			self.mount('/demo', StaticFiles(directory='demo'), name="demo")
 
 			self.include_router(demo_route)
 
