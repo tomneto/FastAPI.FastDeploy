@@ -49,8 +49,6 @@ class App(FastAPI):
 
 		if app_config().show_doc:
 
-			paths = [ path1, self.path2, self.path3 ]
-
 			def print_all_packages():
 				packages = []
 				installed_packages = pkg_resources.working_set
@@ -65,20 +63,6 @@ class App(FastAPI):
 			async def test():
 				result, status_code = {"packages": f"{print_all_packages()}", "paths": f"{paths}"}, 200
 				return JSONResponse(content=result, status_code=status_code)
-
-
-			@doc_route.get("/mount")
-			async def mount():
-				result = []
-				for path in paths:
-					try:
-						self.mount('/demo', StaticFiles(directory=path), name="demo")
-						result.append(f"Success with {path}")
-					except Exception as e:
-						result.append(str(e))
-				
-				return JSONResponse(content=result, status_code=200)
-
 
 			@doc_route.get(app_config.doc_url, include_in_schema=False)
 			async def redoc_html(req: Request) -> HTMLResponse:
