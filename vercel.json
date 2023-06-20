@@ -1,5 +1,5 @@
 {
-  "devCommand": "pip install -r requirements.txt && uvicorn main:app --host '0.0.0.0' --port 9873",
+  "installCommand": "pip install -r requirements.txt && uvicorn main:app --host '0.0.0.0' --port 9873",
   "builds": [
     {
       "src": "api/main.py",
