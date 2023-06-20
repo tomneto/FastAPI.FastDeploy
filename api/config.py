@@ -4,7 +4,7 @@ import os
 load_dotenv()
 
 class app_config:
-	# dev settings
+	# dev settings, please don't mess around
 	debug = bool(os.environ.get("DEBUG", default=True))
 	demo = bool(os.environ.get("DEMO", default=False))
 
