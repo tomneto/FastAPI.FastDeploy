@@ -43,8 +43,8 @@ class App(FastAPI):
 	def load_doc_settings(self):
 		if app_config().demo:
 
-			from demo.home import demo_route, path1
-			self.mount('/demo', StaticFiles(directory=path1), name="demo")
+			from demo.home import demo_route, demo_path
+			self.mount('/demo', StaticFiles(directory=demo_path), name="demo")
 			self.include_router(demo_route)
 
 		if app_config().show_doc:
