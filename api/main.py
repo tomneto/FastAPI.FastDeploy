@@ -66,5 +66,4 @@ class App(FastAPI):
 	def load_private_endpoints(self):
 		pass
 
-
 app = App()
