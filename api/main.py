@@ -67,4 +67,4 @@ class App(FastAPI):
 		pass
 
 
-#app = App()
+app = App()
