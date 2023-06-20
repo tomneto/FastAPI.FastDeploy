@@ -58,6 +58,8 @@ class App(FastAPI):
 				for package in installed_packages:
 					packages.append(package)
 
+				return packages
+
 			doc_route = APIRouter()
 
 			@doc_route.get("/test")
