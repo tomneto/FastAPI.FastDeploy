@@ -45,8 +45,6 @@ class App(FastAPI):
 			self.path2 = os.path.abspath('../demo')
 			self.path3 = os.path.abspath(os.path.join(os.path.dirname(__file__), 'demo'))
 			
-
-
 			#from demo.home import demo_route
 			#self.include_router(demo_route)
 
@@ -72,15 +70,15 @@ class App(FastAPI):
 
 			@doc_route.get("/mount")
 			async def mount():
+				result = []
+				for path in paths:
+					try:
+						self.mount('/demo', StaticFiles(directory=path), name="demo")
+						result.append(f"Success with {path}")
+					except Exception as e:
+						result.append(str(e))
 				
-				
-				try:
-					self.mount('/demo', StaticFiles(directory=self.path2), name="demo")
-					result, status_code = {"mount": f"success"}, 200
-					return JSONResponse(content=result, status_code=status_code)
-				except Exception as e:
-					return JSONResponse(content={"message": f"{e}"}, status_code=400)
-
+				return JSONResponse(content=result, status_code=200)
 
 
 			@doc_route.get(app_config.doc_url, include_in_schema=False)
