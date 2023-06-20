@@ -1,16 +1,16 @@
 {
   "buildCommand": "pip install -r requirements.txt",
-  "devCommand": "uvicorn main:app --host '0.0.0.0' --port 9873",
+  "devCommand": "uvicorn api.main:App --host '0.0.0.0' --port 9873",
   "builds": [
     {
-      "src": "api/main.py",
+      "src": "main.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "api/main.py"
+      "dest": "main.py"
     }
   ]
 }
