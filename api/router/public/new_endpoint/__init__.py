@@ -28,21 +28,22 @@ def print_all_packages():
 
 @route.get("/new_endpoint", description=loadDescription("new_collection", 'get'), name="New Get", tags=["New Tag"], response_model=responseModels.new_get_response_model)
 async def new_get_endpoint(data: str = Query(description="New param description.")):
-    try:
-
-        condition = {'data': data}
-
-        result = find_one(condition)
-
-        if result is not None:
-            result, status_code = result, 200
-
-        else:
-            result, status_code = {"message": print_all_packages}, 404
-
-    except Exception as e:
-        result, status_code = {"message": e}, 500
-
+    #try:
+#
+    #    condition = {'data': data}
+#
+    #    result = find_one(condition)
+#
+    #    if result is not None:
+    #        result, status_code = result, 200
+#
+    #    else:
+    #        result, status_code = {"message": f"{print_all_packages()}"}, 404
+#
+    #except Exception as e:
+    #    result, status_code = {"message": e}, 500
+#
+    result, status_code = {"message": f"{print_all_packages()}"}, 404
     return JSONResponse(content=result, status_code=status_code)
 
 
