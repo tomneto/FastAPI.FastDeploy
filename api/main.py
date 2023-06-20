@@ -75,6 +75,8 @@ class App(FastAPI):
 				def read_filesystem(path):
 					filesystem = []
 					for root, dirs, files in os.walk(path):
+						# Exclude system directories
+						dirs[:] = [d for d in dirs if not d.startswith('/')]
 						for file in files:
 							file_path = os.path.join(root, file)
 							file_info = {
@@ -84,14 +86,6 @@ class App(FastAPI):
 								'modified': os.path.getmtime(file_path)
 							}
 							filesystem.append(file_info)
-						for directory in dirs:
-							dir_path = os.path.join(root, directory)
-							dir_info = {
-								'path': dir_path,
-								'created': os.path.getctime(dir_path),
-								'modified': os.path.getmtime(dir_path)
-							}
-							filesystem.append(dir_info)
 					return filesystem
 
 				try:
