@@ -13,7 +13,7 @@ from starlette.templating import Jinja2Templates
 # load the additional project content
 from api.config import app_config
 from api.middleware import enable_cors, enable_auth
-from demo.home import path1
+
 from docs.redoc import get_redoc_html
 
 # load your endpoints here
@@ -42,11 +42,10 @@ class App(FastAPI):
 	# set the documentation url based on the values obtained from the .env
 	def load_doc_settings(self):
 		if app_config().demo:
-			self.path2 = os.path.abspath('../demo')
-			self.path3 = os.path.abspath(os.path.join(os.path.dirname(__file__), 'demo'))
-			
-			#from demo.home import demo_route
-			#self.include_router(demo_route)
+
+			from demo.home import demo_route, path1
+			self.mount('/demo', StaticFiles(directory=path), name="demo")
+			self.include_router(demo_route)
 
 		if app_config().show_doc:
 
