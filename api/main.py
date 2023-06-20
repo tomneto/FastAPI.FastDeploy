@@ -41,8 +41,8 @@ class App(FastAPI):
 		if app_config().demo:
 			from demo.home import demo_route
 
-			self.mount('/demo', StaticFiles(directory=os.path.join(os.path.dirname(os.getcwd()), 'demo')),
-						name="demo")
+			#self.mount('/demo', StaticFiles(directory=os.path.join(os.path.dirname(os.getcwd()), 'demo')),
+			#			name="demo")
 
 			self.include_router(demo_route)
 
