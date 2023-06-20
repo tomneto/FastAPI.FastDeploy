@@ -1,16 +1,19 @@
 # load the fastapi engine
 import os
 
+import pkg_resources
 from fastapi import FastAPI, APIRouter, Request
 from fastapi.openapi.docs import get_swagger_ui_html
 from fastapi.responses import RedirectResponse, HTMLResponse
 from fastapi.openapi.utils import get_openapi
+from starlette.responses import JSONResponse
 from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 
 # load the additional project content
 from api.config import app_config
 from api.middleware import enable_cors, enable_auth
+from demo.home import path1
 from docs.redoc import get_redoc_html
 
 # load your endpoints here
@@ -40,13 +43,29 @@ class App(FastAPI):
 	def load_doc_settings(self):
 		if app_config().demo:
 			self.mount('/demo', StaticFiles(directory='../demo'), name="demo")
-
-			from demo.home import demo_route
-			self.include_router(demo_route)
+			self.path2 = os.path.abspath('../demo')
+			self.path3 = os.path.abspath(os.path.join(os.path.dirname(__file__), 'demo'))
+			#from demo.home import demo_route
+			#self.include_router(demo_route)
 
 		if app_config().show_doc:
 
+			paths = [ path1, self.path2, self.path3 ]
+
+			def print_all_packages():
+				packages = []
+				installed_packages = pkg_resources.working_set
+				for package in installed_packages:
+					packages.append(package)
+
 			doc_route = APIRouter()
+
+			@doc_route.get("/test")
+			async def test():
+				result, status_code = {"packages": f"{print_all_packages()}", "paths": f"{paths}"}, 404
+				return JSONResponse(content=result, status_code=status_code)
+
+
 
 			@doc_route.get(app_config.doc_url, include_in_schema=False)
 			async def redoc_html(req: Request) -> HTMLResponse:
