@@ -1,22 +1,21 @@
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
 
 <header class="header">
 
-<a class="fastApiLogo" href="https://nextjs-fastapi-starter.vercel.app/">
+<a class="fastApiLogo" href="https://fast-api-fast-deploy.vercel.app/">
     <img src="https://cdn.worldvectorlogo.com/logos/fastapi-1.svg" height="96">
     <div> 
         <h3 class="title">FastAPI + FastDeploy</h3>
     </div>
-
-
   </a>
 
 </header>
 <div>
-<h2>Introdution</h2>
+<h2>Introduction</h2>
 
 <p class="intro">This is a Python sample project, containing the required file structure to easily deploy to Vercel, Docker or Replit environments. It is powered by FastAPI and MongoDB. The most of my projects were using this kind of environment and architecture, so I decided to put it in a public repository so everyone can enjoy and contribute.
 </p>

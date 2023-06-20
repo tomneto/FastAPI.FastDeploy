@@ -1,9 +1,12 @@
 # load the fastapi engine
+import os
+
 from fastapi import FastAPI, APIRouter, Request
 from fastapi.openapi.docs import get_swagger_ui_html
 from fastapi.responses import RedirectResponse, HTMLResponse
 from fastapi.openapi.utils import get_openapi
 from starlette.staticfiles import StaticFiles
+from starlette.templating import Jinja2Templates
 
 # load the additional project content
 from api.config import app_config
@@ -13,7 +16,6 @@ from docs.redoc import get_redoc_html
 # load your endpoints here
 from api.router.public import new_endpoint
 ## from api.router.private import
-
 
 class App(FastAPI):
 
@@ -36,6 +38,14 @@ class App(FastAPI):
 
 	# set the documentation url based on the values obtained from the .env
 	def load_doc_settings(self):
+		if app_config().demo:
+			from demo.home import demo_route
+
+			self.mount('/demo', StaticFiles(directory=os.path.join(os.path.dirname(os.getcwd()), 'demo')),
+						name="demo")
+
+			self.include_router(demo_route)
+
 		if app_config().show_doc:
 
 			doc_route = APIRouter()

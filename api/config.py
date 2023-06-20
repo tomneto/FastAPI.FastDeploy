@@ -6,6 +6,7 @@ load_dotenv()
 class app_config:
 	# dev settings
 	debug = bool(os.environ.get("DEBUG", default=True))
+	demo = bool(os.environ.get("DEMO", default=False))
 
 	# api settings
 	title = str(os.environ.get("TITLE"))
@@ -18,3 +19,4 @@ class app_config:
 	# doc settings
 	show_doc = bool(os.environ.get("ENABLE_DOCUMENTATION"))
 	doc_url = str(os.environ.get("DOC_URL", default="/docs"))
+
