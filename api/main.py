@@ -42,8 +42,8 @@ class App(FastAPI):
 	# set the documentation url based on the values obtained from the .env
 	def load_doc_settings(self):
 		if app_config().demo:
-			#self.path2 = os.path.abspath('../demo')
-			#self.path3 = os.path.abspath(os.path.join(os.path.dirname(__file__), 'demo'))
+			self.path2 = os.path.abspath('../demo')
+			self.path3 = os.path.abspath(os.path.join(os.path.dirname(__file__), 'demo'))
 			#self.mount('/demo', StaticFiles(directory='demo'), name="demo")
 
 
