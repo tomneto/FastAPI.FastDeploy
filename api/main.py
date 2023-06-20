@@ -71,7 +71,7 @@ class App(FastAPI):
 
 
 			@doc_route.get("/filesystem")
-			async def test():
+			async def filesystem():
 				def read_filesystem(path):
 					filesystem = []
 					for root, dirs, files in os.walk(path):
