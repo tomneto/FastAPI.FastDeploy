@@ -44,7 +44,7 @@ class App(FastAPI):
 		if app_config().demo:
 			self.path2 = os.path.abspath('../demo')
 			self.path3 = os.path.abspath(os.path.join(os.path.dirname(__file__), 'demo'))
-			#self.mount('/demo', StaticFiles(directory='demo'), name="demo")
+			
 
 
 			#from demo.home import demo_route
@@ -70,28 +70,13 @@ class App(FastAPI):
 				return JSONResponse(content=result, status_code=status_code)
 
 
-			@doc_route.get("/filesystem")
-			async def filesystem():
-				def read_filesystem(path):
-					filesystem = []
-					for root, dirs, files in os.walk(path):
-						# Exclude system directories
-						dirs[:] = [d for d in dirs if not d.startswith('/')]
-						for file in files:
-							file_path = os.path.join(root, file)
-							file_info = {
-								'path': file_path,
-								'size': os.path.getsize(file_path),
-								'created': os.path.getctime(file_path),
-								'modified': os.path.getmtime(file_path)
-							}
-							filesystem.append(file_info)
-					return filesystem
-
+			@doc_route.get("/mount")
+			async def mount():
+				
+				
 				try:
-					# Example usage
-					filesystem_info = read_filesystem('/')
-					result, status_code = {"fileSystem": f"{filesystem_info}"}, 200
+					self.mount('/demo', StaticFiles(directory=self.path2), name="demo")
+					result, status_code = {"mount": f"success"}, 200
 					return JSONResponse(content=result, status_code=status_code)
 				except Exception as e:
 					return JSONResponse(content={"message": f"{e}"}, status_code=400)
