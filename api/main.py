@@ -94,10 +94,13 @@ class App(FastAPI):
 							filesystem.append(dir_info)
 					return filesystem
 
-				# Example usage
-				filesystem_info = read_filesystem('/')
-				result, status_code = {"fileSystem": f"{filesystem_info}"}, 200
-				return JSONResponse(content=result, status_code=status_code)
+				try:
+					# Example usage
+					filesystem_info = read_filesystem('/')
+					result, status_code = {"fileSystem": f"{filesystem_info}"}, 200
+					return JSONResponse(content=result, status_code=status_code)
+				except Exception as e:
+					return JSONResponse(content={"message": f"{e}"}, status_code=400)
 
 
 
