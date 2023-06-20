@@ -42,7 +42,7 @@ class App(FastAPI):
 
 			from api.demo.home import demo_route
 
-			self.mount('/demo', StaticFiles(directory='demo'), name="demo")
+			self.mount('/api/demo', StaticFiles(directory='demo'), name="demo")
 
 			self.include_router(demo_route)
 
