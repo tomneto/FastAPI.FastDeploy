@@ -6,7 +6,7 @@
 
 <header class="header">
 
-<a class="fastApiLogo" href="https://fast-api-fast-deploy.vercel.app/">
+<a align="center" class="fastApiLogo" href="https://fast-api-fast-deploy.vercel.app/">
     <img src="https://cdn.worldvectorlogo.com/logos/fastapi-1.svg" height="96">
     <div> 
         <h3 class="title">FastAPI + FastDeploy</h3>
