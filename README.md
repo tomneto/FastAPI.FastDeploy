@@ -1,6 +1,9 @@
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap">
+<p align="center">
 <img align="center" src="https://cdn.worldvectorlogo.com/logos/fastapi-1.svg" height=96>
-<h3 class="title">FastAPI + FastDeploy</h3>
+<h3 align="center" class="title">FastAPI + FastDeploy</h3>
+</p>
 <div align="center" class="introduction">
     <div class="simpleSessionEnclosure">
         <h2>
