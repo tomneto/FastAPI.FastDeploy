@@ -1,8 +1,8 @@
-<header class="header">
+<header align="center" class="header">
 
 <a align="center" class="fastApiLogo" href="https://fast-api-fast-deploy.vercel.app/">
     <img align="center" src="https://cdn.worldvectorlogo.com/logos/fastapi-1.svg" height="96">
-    <div> 
+    <div align="center"> 
         <h3 align="center" class="title">FastAPI + FastDeploy</h3>
     </div>
   </a>
