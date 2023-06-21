@@ -1,15 +1,9 @@
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="main.css">
-</head>
-<body>
-
 <header class="header">
 
 <a align="center" class="fastApiLogo" href="https://fast-api-fast-deploy.vercel.app/">
-    <img src="https://cdn.worldvectorlogo.com/logos/fastapi-1.svg" height="96">
+    <img align="center" src="https://cdn.worldvectorlogo.com/logos/fastapi-1.svg" height="96">
     <div> 
-        <h3 class="title">FastAPI + FastDeploy</h3>
+        <h3 align="center" class="title">FastAPI + FastDeploy</h3>
     </div>
   </a>
 
@@ -64,13 +58,3 @@ These code was obtained in one of the default endpoint files included in the pro
 </lu>
 
 </div>
-
-
-
-
-
-
-
-</body>
-
-</html>
