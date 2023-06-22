@@ -18,7 +18,7 @@ from docs.redoc import get_redoc_html
 
 # load your endpoints here
 from api.router.public import new_endpoint
-## from api.router.private import
+from system import relative
 
 class App(FastAPI):
 
@@ -41,8 +41,7 @@ class App(FastAPI):
 
 	# set the documentation url based on the values obtained from the .env
 	def load_doc_settings(self):
-		if app_config().demo:
-
+		if app_config().demo and os.path.isdir(relative('demo')):
 			from demo.home import demo_route, demo_path
 			self.mount('/demo', StaticFiles(directory=demo_path), name="demo")
 			self.include_router(demo_route)
@@ -58,11 +57,6 @@ class App(FastAPI):
 				return packages
 
 			doc_route = APIRouter()
-
-			@doc_route.get("/test")
-			async def test():
-				result, status_code = {"packages": f"{print_all_packages()}", "paths": f"{paths}"}, 200
-				return JSONResponse(content=result, status_code=status_code)
 
 			@doc_route.get(app_config.doc_url, include_in_schema=False)
 			async def redoc_html(req: Request) -> HTMLResponse:

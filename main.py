@@ -1,4 +1,4 @@
 from api import server
 
 if __name__ == "__main__":
-	server.run("api.main:App")
+	server.run("api.app:App")

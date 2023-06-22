@@ -1,11 +1,11 @@
 import os.path
-
+from system import relative
 from fastapi.responses import HTMLResponse
 
-with open(os.path.join(os.path.dirname(__file__) , "style.css"), "r") as css_file:
+with open(relative("docs/style.css"), "r") as css_file:
 	css_content = css_file.read()
 
-with open(os.path.join(os.path.dirname(__file__) , "adapt.js"), "r") as js_file:
+with open(relative("docs/adapt.js"), "r") as js_file:
 	js = js_file.read()
 
 def get_redoc_html(
@@ -17,7 +17,7 @@ def get_redoc_html(
 ) -> HTMLResponse:
 	html = f"""<!DOCTYPE html><html><head><title>{title}</title><!-- needed for adaptive design --><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1">"""
 	if with_google_fonts:
-		html += """<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">"""
+		html += """<link href="https://fonts.googleapis.com/css?family=Inter:300,400,700|Inter:300,400,700" rel="stylesheet">"""
 		html += f"""<link rel="shortcut icon" href="{redoc_favicon_url}">
 			</head> 
 			<body>
