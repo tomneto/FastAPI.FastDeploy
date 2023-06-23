@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/demo/index.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div>
+            <a href="https://github.com/tomneto/FastAPI.FastDeploy">
+                <img class="fastApiLogo" src="https://cdn.worldvectorlogo.com/logos/fastapi-1.svg" height="96">
+            </a>
+            <div>
+                <h3 class="title">FastAPI + FastDeploy</h3>
+            </div>
+
+        </div>
+    </header>
+    
+    <div class="introduction">
+        <div class="simpleSessionEnclosure">
+            <h2>
+                Introduction
+            </h2>
+        </div>
+
+        <p>
+            <br> <br>
+            This is a Python sample project, with the required file structure to easily deploy to Vercel, Docker
+            or Replit environments. This project uses FastAPI and MongoDB. 
+            <a href="https://github.com/tomneto/FastAPI.FastDeploy/issues">Click here to take a look on the upcoming features.</a>
+        </p>
+
+        <p>
+            Based on the MVC (Model-View-Controller) architecture.
+        </p>
+    </div>
+
+    <div class="mongoReasons">
+        <div class="simpleSessionEnclosure">
+            <h2>MongoDB built-in</h2>
+        </div>
+        <p>
+            <br><br>
+            For a cuple of obvious reasons...
+        </p>
+
+        <div class="tipNameEnclosure">
+            <h4>It is simple to test</h4>
+        </div>
+
+        <p>
+            Mongo makes it easier, by leaving the heavy duty to your Models, that are the core of a non-relational database based API.
+            And even if you decide to change to a relational database, it comes on handy, because the changes you will need to do are less complicated than otherwise.
+        </p>
+
+        <div class="tipNameEnclosure">
+            <h4>The cluster is easy to setup</h4>
+        </div>
+
+        <p>
+            When using MongoDB, you can just create a cluster on the official Mongo website and you are ready to go! Your models can handle your object mapping and even a migration can be configured with some steps. <br> <br>
+            MongoDB atlas is huge! The official cloud-hosted MongoDB service, offers a range of features like automated backups, monitoring, and easy scalability. Using MongoDB Atlas or similar managed services allows you to focus on your FastAPI application development without worrying about database management.
+        </p>
+
+
+        <div class="tipNameEnclosure">
+            <h4>consolidated syntax</h4>
+        </div>
+
+        <p>
+            ORM's have different syntaxes across differents programming languages. The Mongo packages provided for the most popular programming languages are almost the same, although the language it self can be different, using the same framework syntax can help you to have a better understanding of the code even if you're not familiar with Python.
+        </p>
+
+
+        <div class="tipNameEnclosure">
+            <h4>JSON-like documents</h4>
+        </div>
+
+        <p>
+            MongoDB stores data in JSON-like documents called BSON (Binary JSON). This makes it easy to work with data as it closely aligns with the JSON format commonly used in web development.
+        </p>
+
+
+        <div class="tipNameEnclosure">
+            <h4>High Performance</h4>
+        </div>
+
+        <p>
+            MongoDB's architecture and indexing capabilities contribute to its high performance. It can handle read and write operations efficiently, making it suitable for applications that require fast response times.
+        </p>
+
+
+    </div>
+    
+    <div class="customTips">
+        <div class="sessionEnclosure">
+            <h3 class="tips">customization tips</h3>
+        </div>
+        <div class="tipNameEnclosure">
+            <h4>Understanding the file structure </h4>
+        </div>
+
+        <p> <br>
+            This project gives easier access for some of the customizations that we always need to do
+            while performing deployment to the Docker, Replit or Vercel environments. But in the counter hand it came
+            with routing, controllers and middleware which are commonly used in Node.js or TypeScript
+            implementations.<br> <br> For more information about the usage of the present content:
+            <a href="http://elemental.run"> Go to documentation. </a> <br>
+            But first, take this advice: This project architecture was developed to delivery a great readability of the
+            code. But it is quite confusing
+            if you're not into it.
+        </p>
+        <div class="alertEnclosure">
+            <p class="alert">it's highly recommended <br> to start at least one project by yourself, without
+                using this
+                "shortcut". </p>
+        </div>
+
+
+        <div class="tipNameEnclosure">
+            <h4>Find out for the "new" tag </h4>
+        </div>
+
+        <p>
+
+            They are all over the place, just to help you to know what might be replaced.
+
+            The following code shows where the "new" tag can be located:
+
+        </p>
+
+        <a class="prints" href="https://ibb.co/jH8vKdx"><img
+                src="https://i.ibb.co/t3HMfSN/Screenshot-2023-06-18-at-19-23-49.png"
+                alt="Screenshot-2023-06-18-at-19-23-49" border="0"></a>
+        <p>
+
+            These code was obtained in one of the default route files included in the project, in order to create a new
+            get route we can simply get this code and replace the "new_" for "whatever_you_want". And you will have a
+            basic get endpoint. But of course this is just the tip of the iceberg.
+
+        </p>
+
+    </div>
+
+    <br>
+
+    <p>Developed by: <a href="https://tomneto.com">Tom Neto</a></p>
+
+    <div>
+        <h3>Powered by:</h3>
+        <div class="footer">
+            <img class="fastapiMini" src="https://cdn.worldvectorlogo.com/logos/fastapi-1.svg" height="25"><a
+                href="https://fastapi.tiangolo.com/"></a>
+            <img class="vercelMini"
+                src="https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png" height="26"><a
+                href="http://vercel.com/"></a>
+            <img class="dockerMini" src="https://i.ibb.co/zrxvKM6/docker.png" height="26"><a
+                href="https://www.docker.com/"></a>
+        </div>
+    </div>
+
+</body>
+
+</html>
