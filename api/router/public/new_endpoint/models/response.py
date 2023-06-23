@@ -20,3 +20,8 @@ class new_put_response_model(BaseModel):
 # PATCH - Base Model
 class new_patch_response_model(BaseModel):
 	count: int
+
+
+# DELETE - Base Model
+class new_delete_response_model(BaseModel):
+	count: int

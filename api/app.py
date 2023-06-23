@@ -14,11 +14,11 @@ from starlette.templating import Jinja2Templates
 from api.config import app_config
 from api.middleware import enable_cors, enable_auth
 
-from docs.redoc import get_redoc_html
+from api.docs.redoc import get_redoc_html
 
 # load your endpoints here
 from api.router.public import new_endpoint
-from system import relative
+import system
 
 class App(FastAPI):
 
@@ -41,12 +41,13 @@ class App(FastAPI):
 
 	# set the documentation url based on the values obtained from the .env
 	def load_doc_settings(self):
-		if app_config().demo and os.path.isdir(relative('demo')):
+		if app_config().demo and os.path.isdir(system.relative('demo')):
 			from demo.home import demo_route, demo_path
 			self.mount('/demo', StaticFiles(directory=demo_path), name="demo")
 			self.include_router(demo_route)
 
 		if app_config().show_doc:
+			self.mount(f'/static/docs', StaticFiles(directory=system.relative('api/docs')), name="docsStatic")
 
 			def print_all_packages():
 				packages = []
@@ -60,8 +61,7 @@ class App(FastAPI):
 
 			@doc_route.get('/test', include_in_schema=False)
 			async def test():
-				return {'result': relative("/docs/style.css")}
-
+				return {'result': system.relative("docs/style.css")}
 
 			@doc_route.get(app_config.doc_url, include_in_schema=False)
 			async def redoc_html(req: Request) -> HTMLResponse:

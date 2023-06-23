@@ -2,12 +2,6 @@ import os.path
 from system import relative
 from fastapi.responses import HTMLResponse
 
-with open(relative("docs/style.css"), "r") as css_file:
-	css_content = css_file.read()
-
-with open(relative("docs/adapt.js"), "r") as js_file:
-	js = js_file.read()
-
 def get_redoc_html(
 		*,
 		openapi_url: str,
@@ -24,17 +18,18 @@ def get_redoc_html(
 			<div id="redoc-container">
 
 			</div>
-			
-			<script src="https://cdn.jsdelivr.net/npm/redoc@2.0.0-rc.55/bundles/redoc.standalone.js"> </script>
-			<script src="https://cdn.jsdelivr.net/gh/wll8/redoc-try@1.4.1/dist/try.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/redoc@2.0.0-rc.55/bundles/redoc.standalone.js"></script>
+			<script src="/static/docs/try.js"></script>
 			<script>	
 			initTry({{
 			openApi: `{openapi_url}`,
-			redocOptions: {{scrollYOffset: 0, disableSidebar: true}},
+			redocOptions: {{scrollYOffset: 0, disableSidebar: false}},
 			}})
 			</script>
+			<script src="/static/docs/adapt.js"></script>
+			<link rel="stylesheet" href="/static/docs/try.css">
+			<link rel="stylesheet" href="/static/docs/style.css">
+			</body></html>
 			"""
-		html += f"""<script>{js}</script>"""
-		html += f""""<style>{css_content}</style></body></html>"""
 
 	return HTMLResponse(html)

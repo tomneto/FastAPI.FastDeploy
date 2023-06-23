@@ -1,6 +1,6 @@
 from sys import stderr
 
-from docs.descriptions.endpoints import example  # Use this to import your descriptions
+from api.docs.descriptions.endpoints import example  # Use this to import your descriptions
 
 
 def loadDescription(endpoint, method):

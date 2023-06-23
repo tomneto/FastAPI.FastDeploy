@@ -5,7 +5,7 @@ from starlette.responses import JSONResponse
 from fastapi.param_functions import Query
 
 # internal package's
-from docs.descriptions import loadDescription
+from api.docs.descriptions import loadDescription
 
 # load controller's and models here
 from api.controllers.new_controller import find_one, find_many, insert_one, update_one, update_many, replace_one, \
@@ -108,3 +108,27 @@ async def new_patch_endpoint(request: requestModels.new_patch_request_model):
 		result, status_code = {"message": e}, 500
 
 	return JSONResponse(content=result, status_code=status_code)
+
+
+@route.delete("/new_endpoint", description=loadDescription("new_collection", 'delete'), name="New Delete", tags=["New Tag"],
+		   response_model=responseModels.new_delete_response_model)
+async def new_put_endpoint(request: requestModels.new_delete_request_model):
+	try:
+
+		condition = {
+			'data': request.data
+		}
+
+		result = delete_one(condition)
+
+		if result is not None:
+			result, status_code = {"count": int(result)}, 200
+
+		else:
+			result, status_code = {"message": "Data has not been deleted."}, 404
+
+	except Exception as e:
+		result, status_code = {"message": e}, 500
+
+	return JSONResponse(content=result, status_code=status_code)
+
