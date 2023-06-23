@@ -2,10 +2,10 @@ import os.path
 from system import relative
 from fastapi.responses import HTMLResponse
 
-with open(relative("/docs/style.css"), "r") as css_file:
+with open(relative("docs/style.css"), "r") as css_file:
 	css_content = css_file.read()
 
-with open(relative("/docs/adapt.js"), "r") as js_file:
+with open(relative("docs/adapt.js"), "r") as js_file:
 	js = js_file.read()
 
 def get_redoc_html(
