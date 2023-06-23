@@ -1,15 +1,15 @@
 {
-  "installCommand": "pip install -r requirements.txt && python main.py",
+  "installCommand": "pip install -r requirements.txt && uvicorn api.app:app --host 127.0.0.1 --port 3000",
   "builds": [
     {
-      "src": "main.py",
+      "src": "api/app.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "main.py"
+      "dest": "api/app.py"
     }
   ]
 }
