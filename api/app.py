@@ -59,7 +59,7 @@ class App(FastAPI):
 			doc_route = APIRouter()
 
 			@doc_route.get('/test', include_in_schema=False)
-			async def test(req: Request) -> HTMLResponse:
+			async def test():
 				return {'result': relative("/docs/style.css")}
 
 
