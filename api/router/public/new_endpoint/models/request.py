@@ -39,3 +39,12 @@ class new_patch_request_model(BaseModel):
 	@validator('new_value')
 	def valid_value(cls, value):
 		return new_field_validator(value)
+
+
+# DELETE - Base Model
+class new_delete_request_model(BaseModel):
+	data: str = Query(description='New delete description.')
+
+	@validator('data')
+	def valid_name(cls, value):
+		return new_field_validator(value)
