@@ -20,6 +20,11 @@
     <p>
         Based on the MVC (Model-View-Controller) architecture.
     </p>
+    <p align="center">Demo Environments 
+        <a href="https://fast-api-fast-deploy.vercel.app/">Vercel</a>
+        
+    </p>
+    
 </div>
 <br>
 <p align="center">Developed by: <a href="https://tomneto.com">Tom Neto</a></p>
