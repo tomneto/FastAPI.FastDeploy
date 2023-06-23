@@ -5,7 +5,7 @@ from starlette.responses import JSONResponse
 from fastapi.param_functions import Query
 
 # internal package's
-from docs.descriptions import loadDescription
+from api.docs.descriptions import loadDescription
 
 # load controller's and models here
 from api.controllers.new_controller import find_one, find_many, insert_one, update_one, update_many, replace_one, \

@@ -1,0 +1,1 @@
+from api.docs.descriptions.endpoints import example

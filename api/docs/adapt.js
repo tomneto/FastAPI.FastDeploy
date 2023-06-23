@@ -2,10 +2,7 @@ function applySwaggerStyle() {
   var swaggerBoxes = document.querySelectorAll(
     'div[class^="opblock opblock-"]'
   );
-  swaggerBoxes.forEach((box) => {
-    box.style.border = "0px solid";
-    box.style.color = "white";
-  });
+
   var tables = document.querySelectorAll("table");
   tables.forEach((table) => {
     table.setAttribute("hidden", "hidden");
@@ -65,6 +62,31 @@ function applySwaggerStyle() {
         button.style.borderBottomRightRadius = "15px";
       }
     });
+  });
+
+  const redocMethodsPlaceHolder = document.querySelectorAll("span[class^='sc-gIvpjk']");
+  const tryMethodPlaceHolder = document.querySelectorAll("span[class^='sc-jHcXXw']");
+  
+  tryMethodPlaceHolder.forEach(place => {
+    const type = place.getAttribute('type');
+  
+    const correspondingElement = Array.from(redocMethodsPlaceHolder).find(element =>
+      element.getAttribute('type') === type
+    );
+  
+    if (correspondingElement) {
+
+      const backgroundColor = getComputedStyle(correspondingElement).backgroundColor;
+      const color = getComputedStyle(correspondingElement).color;
+  
+      place.style.backgroundColor = backgroundColor;
+      place.style.color = color;
+      place.style.padding = "10px 10px 10px 10px";
+      place.style.textTransform = "uppercase"
+      place.style.margin = "10px";
+      place.style.fontSize = "12px";
+      place.style.transition = "brightness 0.3s ease";
+    }
   });
 
   const container = document.querySelector(".sc-hKFxyN.gHYYBK.api-info");
