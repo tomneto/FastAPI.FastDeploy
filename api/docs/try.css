@@ -13,7 +13,7 @@ screen and (max-width: 85rem) {
 }
 
 .swaggerBox.hide {
-  cursor: none;
+  visibility: hidden;
   width: 0;
   height: 0;
   opacity: 0;
@@ -30,6 +30,7 @@ screen and (max-width: 85rem) {
 }
 
 .swaggerBox .swagger-ui .download-contents {
+  visibility: hidden;
   top: -10px;
   right: 0;
   width: initial;
