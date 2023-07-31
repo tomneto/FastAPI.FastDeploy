@@ -48,11 +48,11 @@ class connect:
 			self.mongo_client.admin.command('ping')
 			print("Pinged your deployment. You successfully connected to MongoDB!")
 
-
 		except Exception as e:
 			raise e
 
 	def collection(self, collection_name):
+		collection_name = f'{collection_name}_{app_config.environment}'
 		collection = self.db.__getattr__(collection_name)
 		# load the indexes from the respective collection folder
 		set_indexes(collection, collection_name)

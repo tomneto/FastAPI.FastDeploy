@@ -1,6 +1,6 @@
 # load the fastapi engine
 import os
-
+import uvicorn
 import pkg_resources
 from fastapi import FastAPI, APIRouter, Request
 from fastapi.openapi.docs import get_swagger_ui_html
@@ -17,14 +17,14 @@ from api.middleware import enable_cors, enable_auth
 from api.docs.redoc import get_redoc_html
 
 # load your endpoints here
-from api.router.public import new_endpoint
+from api.router.public import user, access
 import system
 
 class App(FastAPI):
 
 	def __init__(self):
 		# applying basic api settings
-		super().__init__(docs_url=None, redoc_url=None)
+		super().__init__(docs_url=None, redoc_url=None, swagger_ui_parameters={"defaultModelsExpandDepth": -1})
 
 		self.title = app_config().title
 
@@ -75,10 +75,12 @@ class App(FastAPI):
 
 	# load your public endpoints here:
 	def load_public_endpoints(self):
-		self.include_router(new_endpoint.route)
+		self.include_router(user.route)
+		self.include_router(access.route)
 
 	# load your private endpoints here:
 	def load_private_endpoints(self):
 		pass
 
 app = App()
+

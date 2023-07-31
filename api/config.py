@@ -20,3 +20,11 @@ class app_config:
 	show_doc = bool(os.environ.get("ENABLE_DOCUMENTATION"))
 	doc_url = str(os.environ.get("DOC_URL", default="/docs"))
 
+	# specific settings
+	product_id = str(os.environ.get("PRODUCT_ID", 1))
+
+	if debug:
+		environment = 'debug'
+	else:
+		environment = 'production'
+

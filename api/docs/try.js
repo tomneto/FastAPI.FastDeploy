@@ -437,6 +437,7 @@ function _arrayLikeToArray(arr, len) {
 
       $opblock.addClass("open");
       console.log("selStr", selStr);
+
       $(".swaggerBox").scrollTo($swaggerApiDom.parent());
 
       function changeFn() {
@@ -448,6 +449,8 @@ function _arrayLikeToArray(arr, len) {
           var newHeight = "".concat(pos.height, "px");
 
           if (oldHeight !== newHeight) {
+
+
             $(".swaggerBox").scrollTo($swaggerApiDom.parent());
             $(".swaggerBox").css({
               height: newHeight,
@@ -456,6 +459,9 @@ function _arrayLikeToArray(arr, len) {
               height: getSwaggerBoxHeight(),
             });
             oldHeight = newHeight;
+
+            defaultParameter('fingerprintCookie', currentFingerprint)
+            defaultParameter('fingerprintHeader', currentFingerprint)
           }
         }
       }
@@ -472,6 +478,7 @@ function _arrayLikeToArray(arr, len) {
 
     $(window).resize(
       debounce(function () {
+
         $(".swaggerBox").addClass("hide").removeClass("show").css({
           left: 0,
           top: 0,
